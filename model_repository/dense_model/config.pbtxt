@@ -1,0 +1,29 @@
+name: "dense_model"
+backend: "python"
+
+max_batch_size: 0
+
+input [
+  {
+    name: "TEXT"
+    data_type: TYPE_STRING
+    dims: [ -1 ]
+  }
+]
+
+output [
+  {
+    name: "EMBEDDING"
+    data_type: TYPE_FP32
+    dims: [1024]  # roberta-large ma embedding size 1024, sprawdź model. MMLW retrieval roberta-large to zapewne 1024-d
+    # sprawdź w dokumentacji modelu hidden_size:
+    # roberta-large typically has hidden_size=1024. Wtedy dims: [1024]
+  }
+]
+
+instance_group [
+  {
+    count: 1
+    kind: KIND_GPU
+  }
+]
