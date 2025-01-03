@@ -22,8 +22,10 @@ def get_embedding(texts, url="localhost:8000", model_name="dense_model"):
 
 # Przykładowe wywołanie
 if __name__ == "__main__":
-    text = "To jest przykładowy tekst"
+    text1 = "To jest przykładowy tekst"
+    text2 = "To jest drugi, zupełnie inny tekst"
     # text = "To jest przykladowy tekst"
-    emb = get_embedding(text)
+    emb = get_embedding([[text1], [text2]])
+    # emb = get_embedding(text1)
     print("Embedding shape:", emb.shape)
     print("Embedding:", emb)

@@ -1,15 +1,3 @@
-# from transformers import AutoModel, AutoTokenizer
-# class TritonPythonModel:
-#     def initialize(self, args):
-#         model_name = "sdadas/mmlw-retrieval-roberta-large"
-#         # self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-#         self.model = AutoModel.from_pretrained(model_name)
-#
-#
-#     def execute(self, requests):
-#
-#         responses=[]
-
 import torch
 import numpy as np
 from transformers import AutoTokenizer, AutoModel
@@ -39,7 +27,7 @@ class TritonPythonModel:
             raw_texts = in_tensor.as_numpy()
             texts = [
                 x.decode("utf-8", errors="replace") if isinstance(x, bytes) else x
-                for x in raw_texts
+                for x in raw_texts.reshape(-1)
             ]
 
             # Tokenizacja
