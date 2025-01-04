@@ -1,0 +1,32 @@
+name: "embedding_model"
+backend: "python"
+
+max_batch_size: 8
+
+input [
+  {
+    name: "INPUT_IDS"
+    data_type: TYPE_INT64
+    dims: [ -1 ]
+  },
+  {
+    name: "ATTENTION_MASK"
+    data_type: TYPE_INT64
+    dims: [ -1 ]
+  }
+]
+
+output [
+  {
+    name: "EMBEDDING"
+    data_type: TYPE_FP32
+    dims: [1024]
+  }
+]
+
+instance_group [
+  {
+    count: 1
+    kind: KIND_GPU
+  }
+]
