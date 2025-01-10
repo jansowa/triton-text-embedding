@@ -1,0 +1,37 @@
+name: "embedding_model"
+platform: "tensorrt_plan"
+
+max_batch_size: 8
+
+input [
+  {
+    name: "input_ids"
+    data_type: TYPE_INT32
+    dims: [ -1 ]
+  },
+  {
+    name: "attention_mask"
+    data_type: TYPE_INT32
+    dims: [ -1 ]
+  }
+]
+
+output [
+  {
+    name: "sentence_embedding"
+    data_type: TYPE_FP32
+    dims: [1024]
+  },
+  {
+    name: "token_embeddings"
+    data_type: TYPE_FP32
+    dims: [ -1, 1024 ]  # Przykładowy kształt, dostosuj do rzeczywistego
+  }
+]
+
+instance_group [
+  {
+    count: 1
+    kind: KIND_GPU
+  }
+]
