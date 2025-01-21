@@ -43,8 +43,8 @@ tritonserver --model-repository=onnx_model_repository --log-verbose=1
 ```shell
 tritonserver --model-repository=tensorrt_model_repository --log-verbose=1
 ```
-6. Run client (check "container_name" with ```docker ps```):
+6. Run client (don't take the script as a serious benchmark - it's just an example of use):
 ```shell
-docker exec -it <container_name> /bin/bash
+docker exec -it triton-container /bin/bash
 python3 client.py
 ```

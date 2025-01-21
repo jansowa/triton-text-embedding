@@ -23,14 +23,10 @@ def get_embedding(texts, url="localhost:8000", model_name="ensemble_model"):
 
 if __name__ == "__main__":
     text1 = "To jest przykładowy tekst"
-    text2 = "To jest drugi, zupełnie inny tekst"
+    text2 = "To jest drugi, zupełnie inny tekst i sporo dłuższy tekst w języku polskim, przy którym sprytne modele będą musiały kombinować, w jaki sposób skompresować go w pewien wektor. Mam nadzieję, że pójdzie to dobrze."
     start_time = time()
-    # tensorrt 1.09-1.14
-    # tensorrt 0.78-0.83
-    # onnx 1.56-1.57
-    # python 1.28-1.29
     for _ in range(100):
-        emb = get_embedding([[text1], [text2], [text1], [text2], [text1], [text2], [text1], [text2]])
+        emb = get_embedding([[text1], [text2], [text1*2], [text2*2], [text1*3], [text2*3], [text1*4], [text2*4]])
     end_time = time()
     print(f"Calculation time: {end_time-start_time}")
     print("Embedding shape:", emb.shape)
