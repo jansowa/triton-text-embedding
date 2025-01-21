@@ -1,7 +1,7 @@
 Using this repository, you can run and compare the embeddings model hosted using nvidia triton with three different back-ends - PyTorch, ONNX and TensorRT.
 
-[!CAUTION]
-The code was tested only on nvidia 550 drivers. There may be compatibility problems with other versions.
+> [!CAUTION]
+> The code was tested only on nvidia 550 drivers. There may be compatibility problems with other versions.
 
 0. (Optional) Set minimum/optimum/maximum tokens and batch size for TensorRT. The maximum batch size for all back-ends is also written in the pbtxt files (“max_batch_size: 8”) - change the value if necessary.
 1. Install [nvidia drivers](https://ubuntu.com/server/docs/nvidia-drivers-installation), [Docker](https://docs.docker.com/engine/install/), [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
