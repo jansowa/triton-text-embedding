@@ -1,8 +1,8 @@
-transformers==4.33.0
-torch==2.0.0
-tokenizers==0.13.3
-numpy==1.24.0
-optimum[exporters]
-accelerate
-sentence_transformers
-tritonclient[all]
+transformers==4.46.3
+torch==2.5.1
+tokenizers==0.20.3
+numpy==1.26.4
+optimum[exporters]==1.23.3
+accelerate==1.3.0
+sentence_transformers==3.3.1
+tritonclient[all]==2.53.0
